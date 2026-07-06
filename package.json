@@ -1,0 +1,12 @@
+{
+  "name": "mario-kart",
+  "version": "1.0.0",
+  "description": "Simulador de Mario Kart com personagens e baseado nos status deles e na sorte dos dados",
+  "license": "ISC",
+  "author": "lucimarjo",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
