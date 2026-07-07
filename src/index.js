@@ -22,7 +22,7 @@ const Characters=[
         MANEUVERABILITY: 4,
         POWER: 3,
         POINTS: 0},
-        {NAME: "DONKEY KONG",
+        {NAME: "DK",
         SPEED: 2,
         MANEUVERABILITY: 2,
         POWER: 5,
@@ -34,20 +34,69 @@ const Characters=[
         POINTS: 0
         }
 ]
+const Tracks=[
+    {NAME: "RAINBOW ROAD",
+    RETA: 0.15,
+    CURVA: 0.60,
+    CONFRONTO: 0.25
+    },
+    {NAME: "COCONUT MALL",
+    RETA: 0.15,
+    CURVA: 0.25,
+    CONFRONTO: 0.6
+    },
+    {NAME: "BOWSER'S CASTLE",
+    RETA: 0.60,
+    CURVA: 0.025,
+    CONFRONTO: 0.15
+    }
+]
+const Karts=[
+    {NAME: "STANDARD",
+    BUFF: "",
+    NERF: "",
+    BONUS: 0,
+    COST: 0
+    },
+    {NAME: "BUGGY BOLT",
+    BUFF: "SPEED",
+    NERF: "POWER",
+    BONUS: +1,
+    COST: -1
+    }
+]
 
-async function  rollDice(){
+// função pra escolher pista e kart
+//list=Karts/Tracks
+//what=kart/pista
+async function choose(rl, list, what) {
+    console.log("Escolha o(a) ",what, "\n");
+    list.forEach(item => {
+        console.log("- ",item.NAME)
+    });
+    let thing;
+    while(!thing){
+        let answer1 = await rl.question("Digite o nome: ");
+        thing = await findOnList(answer1, list)
+        if(!thing){
+            console.log(what,"não encontrado")
+        }
+    } return thing;
+}
+
+async function rollDice(){
     return Math.floor(Math.random() * 6) +1;
 }
 
-async function getRandomBlock(){
+async function getRandomBlock(course){
     let random = Math.random();
     let result;
     switch (true) {
-        case random < 0.33:
+        case random < course.RETA:
             result = "RETA"
             break;
         
-        case random< 0.66:
+        case random< course.CURVA:
             result = "CURVA"
             break;
         
@@ -70,11 +119,11 @@ async function calcDamage(characterLoser, characterWin,item, random) {
         characterWin.POINTS++;
     }
 }
-async function playRaceEngine(character1, character2) {
+async function playRaceEngine(character1, character2, course) {
     for(let round=1; round<=5; round++){
         console.log("🏁 Rodada", round)
         // sort block
-        let block = await getRandomBlock()
+        let block = await getRandomBlock(course)
         console.log("bloco:", block)
 
         // roll dice
@@ -191,21 +240,25 @@ async function declareWinner(character1, character2) {
     }
 }
 
-async function findCharacter(name){
-    return Characters.find(c=> c.NAME.toLowerCase().trim()===name.toLowerCase().trim())
+async function findOnList(name, list){
+    return list.find(c=> c.NAME.toLowerCase().trim()===name.toLowerCase().trim())
 }
 async function chooseCharacter(rl){
-    console.log("Escolha os 2 competidores da partida\n", Characters)
+    console.log("Escolha os 2 competidores da partida\n")
+    Characters.forEach(item => {
+    const alignedName = item.NAME.padEnd(6, " ");
+    console.log(`- ${alignedName} | Velocidade: ${item.SPEED} | Manobrabilidade: ${item.MANEUVERABILITY} | Poder: ${item.POWER}`);
+});
     let player1, player2;
     while(!player1 || !player2){
         
         const answer1 = await rl.question("Digite o nome do Player 1: ")
-        player1 = await findCharacter(answer1)
+        player1 = await findOnList(answer1, Characters)
         if(!player1){
             console.log("Personagem não encontrado.")
         }
         const answer2 = await rl.question("Digite o nome do player 2: ")
-        player2 = await findCharacter(answer2)
+        player2 = await findOnList(answer2, Characters)
         if(!player2){
             console.log("Personagem não encontrado")
         }
@@ -225,9 +278,11 @@ return [player1, player2];
     if(!players){
         return 0
     }
+    const track = await choose(rl, Tracks, "pista")
+    
     rl.close();
 
     console.log("🏁 Corrida entre", players[0].NAME, "e", players[1].NAME, "começando...\n");
-    await playRaceEngine(players[0], players[1])
+    await playRaceEngine(players[0], players[1], track)
     await declareWinner(players[0], players[1])
 })()

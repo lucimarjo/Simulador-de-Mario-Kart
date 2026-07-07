@@ -7,14 +7,14 @@ O Computador deve receber dois personagens para disputar a corrida em um objeto 
 <b>Pistas</b>
 <li>Os personagens irão correr em uma pista aleatória de 5 rodadas
 <li>A cada rodada será sorteado um bloco da pista que pode ser:
-</li>
+
 <b>1. </b> Uma reta, o jogador joga um dado de 6 lados e soma o valor no atributo de <b>VELOCIDADE</b>, quem vencer ganha um ponto.
 
 <b>2.</b> Uma curva, o jogador joga um dado de 6 lados e soma o valor ao atributo de <b>MANOBRABILIDADE</b>, quem vencer ganha um ponto.
 <b>3.</b> Um confronto, o jogador joga um dado de 6 lados e soma o valor ao atributo de <b>PODER</b>, quem perder perde 1 ponto.
 
 <b> Condição de vitória</b>
-Ao final ganha quem tiver mais pontos
+Ao final ganha quem tiver mais pontos.
 
 ## Personagens
 
@@ -24,13 +24,15 @@ Ao final ganha quem tiver mais pontos
 | Bowser <br><br> ![Bowser](./docs/bowser.gif) | Velocidade: 5 <br><br> Manobrabilidade: 2 <br><br> Poder: 5 | Luigi <br><br> ![Luigi](./docs/luigi.gif) | Velocidade: 3 <br><br> Manobrabilidade: 4 <br><br> Poder: 4 | Donkey Kong <br><br> ![DK](./docs/dk.gif) | Velocidade: 2 <br><br> Manobrabilidade: 2 <br><br> Poder: 5 |
 
 ### Futuras implementações
-- [X] O jogador poder escolher os personagens
-- [X] Sortear aleatoriamente se é um casco (-1 ponto) ou uma bomba (-2 pontos)
-- [X] quem vence o confronto ganha um turbo (+1 ponto) aleatoriamente
-- [ ] Escolha de pistas com diferenças entre elas (Pista X tem chance de mais curvas enquanto pista Y tem chance de mais retas)
-- [ ] Diferentes veículos que modificam diretamente nos stats. Monster Truck diminui Manobrabilidade mas aumenta Poder
+- [X] O jogador poder escolher os personagens.
+- [X] Sortear aleatoriamente se é um casco (-1 ponto) ou uma bomba (-2 pontos).
+- [X] quem vence o confronto ganha um turbo (+1 ponto) aleatoriamente.
+- [X] Escolha de pistas com diferenças entre elas (Pista X tem chance de mais curvas enquanto pista Y tem chance de mais retas).
+- [ ] Diferentes veículos que modificam diretamente nos stats. Monster Truck diminui Manobrabilidade mas aumenta Poder por exemplo.
 
 ## Sobre as implementações
 <li><b>Escolha de personagens</b>: Todos os personagens acima podem ser escolhidos, basta digitar seu nome corretamente.
 <li><b>Casco ou bomba</b>: Ao entrar em um confronto há 25% de chance de quem perder ser atingido por uma bomba, perdendo 2 pontos ao invés do antigo 1. Entretanto, se o perdedor ter 1 ponto e ser atingido pela bomba ele não ficará com -1, mas sim, com 0.
 <li><b>Turbo</b>: Ao acabar a disputa o vencedor tem 50% de chance de pegar um turbo. A chance é baseado no valor dado pela variável responsável por saber se no confronto terá um Casco ou uma Bomba. Se esse valor for par terá turbo, caso não, não terá. 
+<li><b>Pistas</b>: Diferentes pistas com grande diferença entre elas. Rainbow Road tem mais curvas, Coconut Mall tem mais confrontos enquanto Bowser's Castle tem mais Retas.
+<li><b>Karts</b>: Ainda não foi implementado mas já está com o começo dela.

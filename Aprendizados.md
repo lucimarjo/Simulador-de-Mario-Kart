@@ -39,7 +39,7 @@ ao preencher a função em parênteses e um conjunto logo após ela se torna uma
 ``` javascript
 await playRaceEngine(player1, player2)
 ```
-serve para o código esperar a função parar de executar para continuar
+Serve para o código esperar a função parar de executar para continuar
 
 ### Readline
 ``` javascript
@@ -50,6 +50,12 @@ rl.close();
 ```
 
 Colocando a primeira linha, já é possível fazer com que o usuário digite o que quiser no terminal.
+
+### PadEnd
+``` javascript
+const alignedName = item.NAME.padEnd(6, " ");
+```
+Pega a string e conta quanto falta pra preencher o valor fixo, e preenche com o segundo valor
 
 ### CTRL + K + C
 
