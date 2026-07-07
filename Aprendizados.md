@@ -41,6 +41,15 @@ await playRaceEngine(player1, player2)
 ```
 serve para o código esperar a função parar de executar para continuar
 
+### Readline
+``` javascript
+const rl = readline.createInterface({input, output});
+...
+const answer1 = await rl.question("Digite o nome do Player 1: ")
+rl.close();
+```
+
+Colocando a primeira linha, já é possível fazer com que o usuário digite o que quiser no terminal.
 
 ### CTRL + K + C
 
