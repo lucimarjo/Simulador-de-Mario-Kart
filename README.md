@@ -24,8 +24,13 @@ Ao final ganha quem tiver mais pontos
 | Bowser <br><br> ![Bowser](./docs/bowser.gif) | Velocidade: 5 <br><br> Manobrabilidade: 2 <br><br> Poder: 5 | Luigi <br><br> ![Luigi](./docs/luigi.gif) | Velocidade: 3 <br><br> Manobrabilidade: 4 <br><br> Poder: 4 | Donkey Kong <br><br> ![DK](./docs/dk.gif) | Velocidade: 2 <br><br> Manobrabilidade: 2 <br><br> Poder: 5 |
 
 ### Futuras implementações
-- [ ] O jogador poder escolher os personagens
-- [ ] Sortear aleatoriamente se é um casco (-1 ponto) ou uma bomba (-2 pontos)
-- [ ] quem vence o confronto ganha um turbo (+1 ponto) aleatoriamente
+- [X] O jogador poder escolher os personagens
+- [X] Sortear aleatoriamente se é um casco (-1 ponto) ou uma bomba (-2 pontos)
+- [X] quem vence o confronto ganha um turbo (+1 ponto) aleatoriamente
 - [ ] Escolha de pistas com diferenças entre elas (Pista X tem chance de mais curvas enquanto pista Y tem chance de mais retas)
 - [ ] Diferentes veículos que modificam diretamente nos stats. Monster Truck diminui Manobrabilidade mas aumenta Poder
+
+## Sobre as implementações
+<li><b>Escolha de personagens</b>: Todos os personagens acima podem ser escolhidos, basta digitar seu nome corretamente.
+<li><b>Casco ou bomba</b>: Ao entrar em um confronto há 25% de chance de quem perder ser atingido por uma bomba, perdendo 2 pontos ao invés do antigo 1. Entretanto, se o perdedor ter 1 ponto e ser atingido pela bomba ele não ficará com -1, mas sim, com 0.
+<li><b>Turbo</b>: Ao acabar a disputa o vencedor tem 50% de chance de pegar um turbo. A chance é baseado no valor dado pela variável responsável por saber se no confronto terá um Casco ou uma Bomba. Se esse valor for par terá turbo, caso não, não terá. 
