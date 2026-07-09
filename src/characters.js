@@ -1,0 +1,35 @@
+const Characters=[
+        {NAME: "MARIO",
+        SPEED: 4,
+        MANEUVERABILITY: 3,
+        POWER: 3,
+        POINTS: 0},
+        {NAME: "LUIGI",
+        SPEED: 3,
+        MANEUVERABILITY: 4,
+        POWER: 4,
+        POINTS: 0},
+        {NAME: "PEACH",
+        SPEED: 3,
+        MANEUVERABILITY: 4,
+        POWER: 2,
+        POINTS: 0},
+        {NAME: "YOSHI",
+        SPEED: 2,
+        MANEUVERABILITY: 4,
+        POWER: 3,
+        POINTS: 0},
+        {NAME: "DK",
+        SPEED: 2,
+        MANEUVERABILITY: 2,
+        POWER: 5,
+        POINTS: 0},
+        {NAME: "BOWSER",
+        SPEED: 5,
+        MANEUVERABILITY: 2,
+        POWER: 5,
+        POINTS: 0
+        }
+    ]
+
+module.exports = Characters;
